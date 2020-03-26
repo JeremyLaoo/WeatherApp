@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    
     <title>WeatherApp</title>
 </head>
 <body>
@@ -19,6 +22,82 @@
 
 
    <!-- GRID -->
+
+    <div class="container">
+      
+
+        <div class="row">
+          <div class="col-12 ">
+            <!-- Title  -->
+            <span class="msgTitle">L'application qui vous annonce en temps réel la météo de la ville de votre choix</span>
+          </div>
+
+          <div class="col-12 col-lg-6 ">
+            <!-- METEO DU JOUR  -->
+            <div>
+              <div>
+                <span class="meteo">Météo du jour</span>
+              </div>
+            </div>
+            <div>
+              <span class="date">27/03</span>
+            </div>
+          </div>
+          
+            <div class="col-12 col-lg-6">
+              <!-- offset-lg-6 permet de décaler de 6 colonne et laisser une place vide  -->
+                <!-- SEARCH BAR  -->
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Enter City Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                  <div class="input-group-append">
+                    <button class="btn btn-warning" type="button">Add</button>
+                  </div>
+                </div>
+             </div>
+            
+            <div class="col-12 col-lg-6">
+                <!-- MAP  -->
+                <img class="mapWeather" src="images/map.png">
+            </div>
+
+            <div class="col-12 col-lg-6">
+                <!-- MAP  -->
+                <ul class="list-group">
+
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      
+                        <span class="cities">Paris</span>
+                      
+                      <div class="listGroupInformations">
+
+                        Nuageux
+                        <img class="imgList" src="images/picto-1.png">
+                        <span class="lowTemp  badge-pill badge-info">3°C</span> /
+                        <span class="highTemp  badge-pill badge-danger">12°C</span>
+
+                      </div>
+                      <div>
+                        <span class="pictoWarning"><i class="far fa-times-circle"></i></span>
+                      </div>
+                    </li>
+
+                    
+
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      Dapibus ac facilisis in
+                      <span class="badge badge-primary badge-pill">2</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      Morbi leo risus
+                      <span class="badge badge-primary badge-pill">1</span>
+                    </li>
+                </ul>
+            </div>
+
+            
+        </div>
+    </div>
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

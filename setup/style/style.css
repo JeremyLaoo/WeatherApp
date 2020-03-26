@@ -1,6 +1,7 @@
 body {
-
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color:#f0f2f1;
+  font-size: 14px;
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 a {
@@ -17,10 +18,8 @@ a {
   margin-right: 15px;
 }
 
-
-
 .home {
-  background-image: url('../images/weather.jpg');
+  background-image: url('../images/10.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -47,4 +46,71 @@ a {
 .header {
   margin-bottom: 50px;
   color: #FFFFFF;
+}
+.row{
+  background-color: #FFF;
+  border-radius: 10px;
+  padding: 30px
+}
+
+
+/* CSS TITLE  */
+.msgTitle{
+  
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  font-size: 30px;
+  /* font-weight: bold; */
+  color:  #ffc107;
+}
+
+/* CSS dDay */
+
+.meteo{
+  /* position: absolute; */
+  font-size: 20px;
+  font-weight: bold;
+}
+.date{
+  font-size: 40px;
+  margin-left: 50px;
+  color :  #f4f5f8;
+  font-weight: bold;
+  
+}
+
+/* CSS MAP  */
+
+.mapWeather{
+  max-width: 100%;
+  height: auto;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #d7dbe0;
+  border-radius: 10px;
+
+}
+
+/* CSS CITIES LIST  */
+
+.listGroupInformations{
+  display: flex;
+  align-items: center;
+}
+.pictoWarning{
+  color: #ffc107; 
+}
+.imgList{
+  margin: 20px;
+}
+.lowTemp{
+margin-right: 10px;
+}
+.highTemp{
+margin-left: 10px;
+}
+.cities{
+  font-weight: bold;
+  font-size: 16px;
 }
