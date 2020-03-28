@@ -30,9 +30,24 @@ router.get('/weather', function(req, res, next) {
 
 router.post('/add-city', function(req, res, next) {
 
+var alreadyExist = false
+
+for (i=0 ; i<cityList.length; i++){
+  if(req.body.city.toLowerCase() == cityList[i].name.toLowerCase()) {
+    alreadyExist = true;
+  }
+}
+
+if(alreadyExist == false){
   cityList.push({
-    name:req.body.city, img:"/images/picto-1.png", desc:"Nuage", tempMin:0, tempMax:1
+    name:req.body.city, 
+    img:"/images/picto-1.png", 
+    desc:"Nuage", 
+    tempMin:0, 
+    tempMax:1,
   })
+}
+  
 
 console.log('req.body :', req.body);
 console.log('req.body.city :', req.body.city);
