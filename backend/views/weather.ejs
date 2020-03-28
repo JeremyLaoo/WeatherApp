@@ -17,7 +17,7 @@
     <!-- HEADER -->
     <nav class=" header navbar navbar-light bg-dark">
         Weather App
-       <a class="logout" href="./login.html">Deconnexion</a>
+       <a class="logout" href="/login">Deconnexion</a>
    </nav> 
 
 
@@ -48,12 +48,15 @@
             <div class="col-12 col-lg-6">
               <!-- offset-lg-6 permet de décaler de 6 colonne et laisser une place vide  -->
                 <!-- SEARCH BAR  -->
-                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Enter City Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                  <div class="input-group-append">
-                    <button class="btn btn-warning" type="button">Add</button>
+                <form action="/add-city" method="post">
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Enter City Name" name="city" value="" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-warning" type="submit">Add</button>
+                    </div>
                   </div>
-                </div>
+                </form>
+                
              </div>
             
             <div class="col-12 col-lg-6">
@@ -62,36 +65,39 @@
             </div>
 
             <div class="col-12 col-lg-6">
-                <!-- MAP  -->
+                <!-- LIST  -->
+                
+                <% if(cityList.length == 0){%>
+                  <span class="empty">No cities found</span>
+                <%}%>
+
                 <ul class="list-group">
 
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                      
-                        <span class="cities">Paris</span>
+                <% 
+                  for(var i=0; i<cityList.length ; i++) { 
+                %>
+
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span class="cities"> <%=cityList[i].name%> </span>
                       
                       <div class="listGroupInformations">
 
-                        Nuageux
+                        <%=cityList[i].desc%>
                         <img class="imgList" src="images/picto-1.png">
-                        <span class="lowTemp  badge-pill badge-info">3°C</span> /
-                        <span class="highTemp  badge-pill badge-danger">12°C</span>
+                        <span class="lowTemp  badge-pill badge-info"><%=cityList[i].tempMin%>°C</span> /
+                        <span class="highTemp  badge-pill badge-danger"><%=cityList[i].tempMax%>°C</span>
 
                       </div>
                       <div>
-                        <span class="pictoWarning"><i class="far fa-times-circle"></i></span>
+                        <span><a class="pictoWarning" href="/delete-city?position=<%=i%>"> <i class="far fa-times-circle"></i> </a> </span>
                       </div>
                     </li>
 
-                    
+                <% 
+                  } 
+                %>
 
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                      Dapibus ac facilisis in
-                      <span class="badge badge-primary badge-pill">2</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                      Morbi leo risus
-                      <span class="badge badge-primary badge-pill">1</span>
-                    </li>
+
                 </ul>
             </div>
 
