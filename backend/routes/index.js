@@ -32,9 +32,6 @@ router.get('/weather', function(req, res, next) {
   console.log('date :', day);
   console.log('month :', month);
 
-
-  // console.log('cityList :', cityList);
-
   res.render('weather', { cityList: cityList, date });
 });
 

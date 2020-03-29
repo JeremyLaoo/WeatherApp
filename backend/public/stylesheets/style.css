@@ -19,13 +19,16 @@ a {
 }
 
 .home {
+  display:flex;
+  flex-direction: column;
+  font-family: 'Raleway', sans-serif;
   background-image: url('../images/10.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   
   color: #FFFFFF;
-  text-shadow: 1px 1px 1px black;
+  /* text-shadow: 1px 1px 1px black; */
   padding-top: 20px;
   padding-bottom: 20px;
   min-height: 100vh;
@@ -50,7 +53,8 @@ a {
 .row{
   background-color: #FFF;
   border-radius: 10px;
-  padding: 30px
+  padding: 30px;
+  opacity: 85%
 }
 
 
@@ -123,3 +127,84 @@ margin-left: 10px;
   font-weight: bold;
   font-size: 16px;
 }
+
+
+/* PAGE LOGIN  */
+.bg-light {
+  background-color:#e6eefc!important;
+  opacity:80%;
+}
+.loginTitle{
+  font-weight: bold;
+  margin : 20px;
+}
+.btnLogin{
+  margin: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 50px; 
+  background-color: transparent;
+  border-style: none;
+  text-decoration: underline;
+  color: #FFF;
+}
+.btnJoinFree{
+  margin: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 50px; 
+}
+
+.titleLogin{
+  color: #ffc107;  
+  border-color: #ffc107;
+}
+
+.btnNavBar{
+  border-style: none;
+  background-color: transparent;
+}
+
+/* MODAL  */
+
+.modal-dialog {
+  height: 80% !important;
+  padding-top:10%;
+}
+
+.modal-content {
+  /* height: 100% !important; */
+  overflow:visible;
+  text-align: center;
+  
+}
+
+.modal-header {
+  align-items:center !important;
+  text-align: center !important;
+}
+
+.modal-body {
+  height: 80%;
+  overflow: auto;
+  padding: 50px;
+}
+
+.modal-footer{
+  display: flex;
+  flex-direction: column;
+}
+
+.modalFoot{
+  display:flex;
+  margin-top: 5px;
+  
+}
+.modalFoot1{
+  margin-right: 10px;
+}
+
+.modalFoot2{
+  font-size: 10px;
+}
+
