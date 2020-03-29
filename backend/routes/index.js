@@ -10,6 +10,11 @@ var cityList = [
   // {name:"Bordeaux", img:"/images/picto-1.png", desc:"Pluie", tempMin:2, tempMax:3},
 ];
 
+var dateUTC= new Date();
+var day = dateUTC.getDate();
+var month = dateUTC.getMonth()+1;
+var date = day+"/"+month;
+
 
 router.get('/', function(req, res, next) {
   
@@ -23,10 +28,14 @@ router.get('/login', function(req, res, next) {
 
 router.get('/weather', function(req, res, next) {
   
+  console.log('dateUTC :', dateUTC);
+  console.log('date :', day);
+  console.log('month :', month);
+
 
   // console.log('cityList :', cityList);
 
-  res.render('weather', { cityList: cityList });
+  res.render('weather', { cityList: cityList, date });
 });
 
 router.post('/add-city', function(req, res, next) {
