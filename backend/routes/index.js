@@ -23,7 +23,7 @@ var dateD = day+"/"+month;
 
 router.get('/', function(req, res, next) {
   
-  console.log('citySchema :', citySchema);
+  // console.log('citySchema :', citySchema);
   
   res.render('index', { cityList, citySchema });
 });
@@ -35,7 +35,11 @@ router.get('/login', function(req, res, next) {
 
 router.get('/weather', async function(req, res, next) {
   
-  console.log('dateD*************************** :', dateD);
+  // console.log('dateD*************************** :', dateD);
+  
+
+  var cityList = await cityModel.find();
+  console.log('cityList :', cityList);
 
   res.render('weather', { cityList: cityList, dateD: dateD });
 });
@@ -47,23 +51,25 @@ router.post('/add-city', async function(req, res, next) {
   
   var resultJSON = JSON.parse(result.body);
 
-  console.log('resultJSON :', resultJSON);
-  var cityList = await cityModel.find()
+  // console.log('resultJSON :', resultJSON);
+  var stringWithoutFirstLetter = req.body.city.slice(1,30);
+  var firstLetterToUpperCase = req.body.city.slice(0,1).toUpperCase();
+  // console.log('stringWithoutFirstLetter :', stringWithoutFirstLetter);
+  // console.log('firstLetterToUpperCase :', firstLetterToUpperCase);
 
-var alreadyExist = false
+// var cityList = await cityModel.find()
 
-var stringWithoutFirstLetter = req.body.city.slice(1,30);
-var firstLetterToUpperCase = req.body.city.slice(0,1).toUpperCase();
-console.log('stringWithoutFirstLetter :', stringWithoutFirstLetter);
-console.log('firstLetterToUpperCase :', firstLetterToUpperCase);
+var alreadyExist = await cityModel.findOne({
+  name: firstLetterToUpperCase+stringWithoutFirstLetter,
+});
 
-for (i=0 ; i<cityList.length; i++){
-  if(req.body.city.toLowerCase() == cityList[i].name.toLowerCase()) {
-    alreadyExist = true;
-  }
-}
+// for (i=0 ; i<cityList.length; i++){
+//   if(req.body.city.toLowerCase() == cityList[i].name.toLowerCase()) {
+//     alreadyExist = true;
+//   }
+// }
 
-if(alreadyExist == false && resultJSON.name){
+if(alreadyExist == null && resultJSON.name){
 console.log('resultJSON.weather[0].icon :', resultJSON.weather[0].icon);
 
   // cityList.push({
@@ -89,23 +95,25 @@ await newCity.save();
 
 cityList = await cityModel.find()
   
-console.log('req.body :', req.body);
-console.log('req.body.city :', req.body.city);
+// console.log('req.body :', req.body);
+// console.log('req.body.city :', req.body.city);
   
   res.render('weather', { cityList,dateD: dateD });
 });
 
 router.get('/delete-city', async function(req, res, next) {
 
-  console.log('deleteclickOK :');
+  // console.log('deleteclickOK :');
 
-//  var deleteCity = await cityModel.deleteOne(
-//     {req.query.position,1}
-//  );
+  console.log('req.query.id :', req.query.id);
 
-  cityList.splice(req.query.position, 1)
+  await cityModel.deleteOne({
+    _id : req.query.id
+  })
+
+ var cityList = await cityModel.find()
   
-  res.render('weather', { cityList, newCity });
+  res.render('weather', { cityList, dateD});
 });
 
 module.exports = router;
