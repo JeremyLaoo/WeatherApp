@@ -3,8 +3,10 @@ var router = express.Router();
 var request = require('sync-request');
 var mongoose = require('mongoose');
 
+
 // importer le fichier bdd qui permet la connexion avec mongoose (checker dans le terminal "null" = Ok)
-var cityModel = require('./bdd')
+var cityModel = require('../models/cities')
+var userModel = require("../models/users")
 
 /* GET home page. */
 
@@ -23,13 +25,9 @@ var dateD = day+"/"+month;
 
 router.get('/', function(req, res, next) {
   
-  // console.log('citySchema :', citySchema);
+ 
   
-  res.render('index', { cityList, citySchema });
-});
-
-router.get('/login', function(req, res, next) {
-  res.render('login', { title: 'Express' });
+  res.render('login');
 });
 
 
@@ -113,6 +111,25 @@ router.get('/delete-city', async function(req, res, next) {
 
  var cityList = await cityModel.find()
   
+  res.render('weather', { cityList, dateD});
+});
+
+
+
+router.get('/update-city', function(req, res, next) {
+  
+  // console.log('citySchema :', citySchema);
+  
+  res.render('weather', { cityList, dateD});
+});
+
+
+
+router.post('/sign-up', function(req, res, next) {
+
+  console.log('req.body********** :', req.body);
+
+
   res.render('weather', { cityList, dateD});
 });
 

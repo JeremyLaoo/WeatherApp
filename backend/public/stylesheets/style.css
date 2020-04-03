@@ -128,6 +128,10 @@ margin-left: 10px;
   font-size: 16px;
 }
 
+.update{
+  justify-content: center;
+}
+
 
 /* PAGE LOGIN  */
 .bg-light {

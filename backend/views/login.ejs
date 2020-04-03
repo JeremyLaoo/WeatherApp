@@ -58,16 +58,29 @@
               </button>
             </div>
             <div class="modal-body">
+
+              <form action="/sign-up" method="POST">
+
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                  <input type="text" class="form-control" name="username" placeholder="Username" value="" aria-label="Username" aria-describedby="basic-addon1">
                 </div>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
+                  <input type="text" class="form-control" name="email" placeholder="Email" value="" aria-label="Username" aria-describedby="basic-addon1">
                 </div>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1">
+                  <select name="sexe" value="" class="form-control">
+                    <option>Je suis ...</option>
+                    <option>homme</option>
+                    <option>femme</option>
+                  </select>
                 </div>
-                <button type="button" class="btn btn-info btnJoinFree">Sign up</button>
+                <div class="input-group mb-3">
+                  <input type="password" class="form-control" name="password" placeholder="Password" value="" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                  <button type="submit" class="btn btn-info btnJoinFree">Sign up</button>
+
+              </form>
+                
             </div>
             <div class="modal-footer">
                 <div class="modalFoot">
