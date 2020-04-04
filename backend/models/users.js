@@ -1,13 +1,13 @@
 var mongoose = require("./connection")
 
-var usersSchema = mongoose.Schema({
+var userSchema = mongoose.Schema({
     username: String,
     email: String,
     sexe: String,
-    password: Number,
+    password: String,
     
 });
 
-var userModel = mongoose.model('users', usersSchema);
+var userModel = mongoose.model('users', userSchema);
 
 module.exports = userModel;

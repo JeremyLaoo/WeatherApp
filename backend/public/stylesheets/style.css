@@ -13,10 +13,34 @@ a {
   color:#ffc107;
 }
 
-.logout {
+.navObject{
+  display: flex;
+  margin-top: 15px;
   margin-left: auto;
+}
+.textNav{
+ display: flex;
+ padding: 15px;
+}
+
+.name{
+font-weight: bold;
+margin-right: 15px;
+}
+
+.imageNav{
+  width: 50px;
+  border-radius: 50%;
   margin-right: 15px;
 }
+
+
+.header {
+  
+  margin-bottom: 50px;
+  color: #FFFFFF;
+}
+
 
 .home {
   display:flex;
@@ -42,14 +66,13 @@ a {
   margin-bottom: 10px;
 }
 
+
+
 .get_started{
   margin-bottom: 70px;
 }
 
-.header {
-  margin-bottom: 50px;
-  color: #FFFFFF;
-}
+
 .row{
   background-color: #FFF;
   border-radius: 10px;

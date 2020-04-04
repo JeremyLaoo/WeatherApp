@@ -111,7 +111,7 @@ router.get('/delete-city', async function(req, res, next) {
 
  var cityList = await cityModel.find()
   
-  res.render('weather', { cityList, dateD});
+  res.render('weather', { cityList, dateD, newUser});
 });
 
 
@@ -125,12 +125,32 @@ router.get('/update-city', function(req, res, next) {
 
 
 
-router.post('/sign-up', function(req, res, next) {
+router.post('/sign-up', async function(req, res, next) {
 
   console.log('req.body********** :', req.body);
+  console.log('req.body.username :', req.body.username);
+
+  var newUser = new userModel({
+    username: req.body.username,
+    email: req.body.email,
+    sexe: req.body.sexe,
+    password: req.body.password,
+  });
+
+  await newUser.save()
+
+  // var monImage = "";
+
+  // if(req.body.sexe == "femme"){
+  //   monImage = src="./images/avatar-2.jpg"
+  //   console.log('monImage :', monImage);
+  // } else {
+  //   monImage = src="./images/avatar-1.jpg"
+  //   console.log('monImage :', monImage);
+  // };
 
 
-  res.render('weather', { cityList, dateD});
+  res.render('weather', { cityList, dateD, newUser});
 });
 
 module.exports = router;
